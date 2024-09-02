@@ -1,0 +1,22 @@
+{
+	"name": "elysia-caching",
+	"module": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"dev": "bun run --watch src/index.ts",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && tsc",
+		"build": "bun build src/index.ts --target node --outdir ./build"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"ioredis": "^5.4.1",
+		"prettier": "^3.3.3"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"elysia": "^1.1.11"
+	}
+}

@@ -1,0 +1,3 @@
+export const CACHABLE_STATUS_CODES = [
+	200, 201, 202, 203, 204, 205, 300, 301, 302, 305, 307,
+]
