@@ -1,14 +1,20 @@
-import Elysia from 'elysia';
-import { cacheApiPlugin } from './apicache';
+import Elysia from 'elysia'
+import { cacheApiPlugin } from './apicache'
+import { redisAdapter } from './adapters/redis'
+import { redis } from './redis'
 
 new Elysia()
-	.use(cacheApiPlugin())
+	.use(
+		cacheApiPlugin({
+			adapter: redisAdapter(redis),
+		}),
+	)
 	.get(
 		'/',
 		() => {
 			return {
 				hello: 'World',
-			};
+			}
 		},
 		{
 			cache: true,
@@ -22,6 +28,6 @@ new Elysia()
 		(server) => {
 			console.log(
 				`Server is running at http://${server.hostname}:${server.port}`,
-			);
+			)
 		},
-	);
+	)
